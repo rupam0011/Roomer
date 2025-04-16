@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
 import { useRouter } from 'next/navigation';
@@ -17,7 +18,7 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
       } = await supabase.auth.getSession();
 
       if (!session) {
-        router.replace('/login'); // redirect to login if not logged in
+        router.replace('/signin'); // redirect to login if not logged in
       } else {
         setSession(session);
       }
