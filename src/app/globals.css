@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Outfit:wght@100..900&family=Special+Gothic+Expanded+One&display=swap');
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -40,3 +41,77 @@ a {
     color-scheme: dark;
   }
 }
+
+/* fonts */
+
+.kanit {
+  font-family: 'Kanit', sans-serif;
+}
+
+.outfit {
+  font-family: 'Outfit', sans-serif;
+}
+
+.special-gothic {
+  font-family: 'Special Gothic Expanded One', sans-serif;
+}
+
+/* registration css */
+
+.register-btn {
+  cursor: pointer;
+  padding: 10px;
+  background-color: white;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 30px;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+/* login css */
+
+.login-btn {
+  cursor: pointer;
+  padding: 10px;
+  background-color: white;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 30px;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+/* dash_card */
+
+/* .dash-card{
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(71deg, #080509, #1a171c, #080509);
+  background-clip: padding-box;
+  border-radius: 45px;
+  padding: 40px;
+}
+.dash-card::after{
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  left: -1px;
+  right: -1px;
+  content: "";
+  z-index: -1;
+  border-radius: 10px;
+  background: linear-gradient(71deg, #121013, #b0afb0, #121013);
+} */

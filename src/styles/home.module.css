@@ -1,0 +1,356 @@
+.banner {
+    display: flex;
+    width: 100%;
+    /* border: 2px solid red; */
+    height: 905px;
+}
+
+.banner .img_banner {
+    width: 50%;
+    /* border: 2px solid forestgreen; */
+    position: relative;
+
+}
+
+.banner .img_banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 50%;
+    width: 23%;
+    /* border: 2px solid red; */
+    background-color: rgb(0, 0, 0);
+    /* Semi-transparent black */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.overlay p {
+    font-size: 2.5rem;
+    margin: 0;
+    /* font-weight: 600; */
+    margin-bottom: 10rem;
+    /* border: 2px solid red; */
+}
+
+.overlay button {
+    width: 8rem;
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 5px;
+    background: white;
+    color: black;
+    border: 1px solid #fff;
+    font-family: outfit;
+    cursor: pointer;
+    /* border-radius: 4px; */
+    transition: background 0.3s ease;
+}
+
+.overlay button:hover {
+    background: #000000;
+    color: white;
+    border: 1px solid #fff;
+}
+
+/*======================== rest container ============================*/
+
+.rest_container {
+    height: auto;
+    width: 100%;
+    background-color: #000;
+}
+
+/* ==================details================= */
+
+.rest_container .details {
+    /* display: flex; */
+    /* justify-content: center; */
+    width: 100%;
+    /* border: 2px solid red; */
+    color: white;
+    /* margin-bottom: 100px; */
+}
+
+.rest_container .details .detailHead {
+    font-family: kanit;
+    font-size: 2rem;
+    padding: 40px 10px 40px 10px;
+
+}
+
+.rest_container .details .detailsBox {
+    /* border: 2px solid greenyellow; */
+    width: 100%;
+    height: 400px;
+    margin: auto;
+    display: flex;
+    border: 1px solid rgba(218, 218, 218, 0.297);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.rest_container .details .detailsBox div {
+    width: 50%;
+}
+
+.rest_container .details .detailsBox .texts {
+    /* border: 2px solid red; */
+    padding: 30px;
+    margin: auto;
+
+}
+
+.rest_container .details .detailsBox .texts p {
+    margin-bottom: 20px;
+}
+
+.rest_container .details .detailsBox .texts .text_head {
+    font-size: 22px;
+    font-family: outfit;
+}
+
+.rest_container .details .detailsBox .texts .text_desc {
+    font-size: 16px;
+    font-family: outfit;
+    letter-spacing: 1px;
+    font-weight: 200;
+}
+
+.rest_container .details .detailsBox .texts button {
+    width: 10rem;
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 45px;
+    background: #fff;
+    font-family: outfit;
+    color: #000;
+    border: 1px solid #fff;
+    cursor: pointer;
+    /* border-radius: 4px; */
+    transition: background 0.3s ease;
+}
+
+.rest_container .details .detailsBox .texts button:hover {
+    background: #000000;
+    color: white;
+    border: 1px solid #fff;
+}
+
+.rest_container .details .detailsBox .image {
+    position: relative;
+   
+}
+
+.rest_container .details .detailsBox .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =====================rooms================= */
+
+.wrapper {
+    padding: 80px 10px;
+    background: black;
+    color: white;
+}
+
+.wrapper .heads {
+    display: flex;
+    justify-content: space-between;
+}
+
+.heading {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    /* font-weight: bold; */
+    font-family: kanit;
+}
+.heads p{
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+    /* border: 2px solid red; */
+    height: 25px;
+}
+.heads p:hover{
+    transform: translateX(20%);
+}
+
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    width: 100%;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.card {
+    background-color: #333333;
+    /* border-radius: 12px; */
+    overflow: hidden;
+    /* border: 2px solid #333; */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+}
+
+
+
+.imageBox {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.imageBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* overlay */
+.imageBox::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0);
+    /* initially transparent */
+    /* transition: background 0.3s ease; */
+}
+
+.imageBox:hover::after {
+    background: rgba(0, 0, 0, 0.3);
+    /* dark overlay on hover */
+}
+
+.content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.content h3 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    font-family: kanit;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.desc {
+    font-size: 1rem;
+    color: #cccccc;
+    margin-bottom: 12px;
+    flex-grow: 1;
+    font-family: outfit;
+}
+
+.capacity {
+    font-size: 1rem;
+    /* font-weight: bold; */
+    margin-bottom: 12px;
+    font-family: outfit;
+}
+
+.btn {
+    background-color: #ffffff;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1rem;
+    width: 130px;
+    border: 1px solid white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: outfit;
+}
+
+.btn:hover {
+    background-color: #000;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+/* ================ create =============== */
+
+.create_container{
+    width: 100%;
+    height: 600px;
+    /* border: 2px solid red; */
+    display: flex;
+    color: #fff;
+}
+
+.create_container div{
+    width: 50%;
+}
+
+.create_container .left_text{
+    /* border: 2px solid red; */
+    padding: 40px 0 0 210px;
+    background-color: #333333;
+}
+.create_container .left_text .create_header{
+    font-size: 2rem;
+    font-family: kanit;
+    letter-spacing: 1px;
+}
+.create_container .left_text .create_desc{
+    margin-top: 20px;
+    margin-bottom: 60px;
+    font-family: outfit;
+    font-weight: 200;
+    width: 400px;
+    text-align: justify;
+}
+
+.create_container .left_text button {
+    background-color: #ffffff;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1rem;
+    width: 150px;
+    border: 1px solid white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: outfit;
+}
+
+.create_container .left_text button:hover {
+    background-color: #000;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.create_container .right_image{
+    position: relative;
+}
+
+.create_container .right_image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
