@@ -34,7 +34,7 @@ export default function Login() {
           <p className='special-gothic' style={{ fontSize: "40px", marginBottom: "20px" }}>
             Sign In
           </p>
-          <p className='kanit'>Don't have and account? <span onClick={() => router.push("/signup")} style={{ textDecoration: "underline", cursor: "pointer" }}>Sign up</span></p>
+          <p className='kanit'>{"Don't have and account? "}<span onClick={() => router.push("/signup")} style={{ textDecoration: "underline", cursor: "pointer" }}>Sign up</span></p>
         </Box>
         <form
           style={{ display: "flex", flexDirection: "column", gap: "20px" }}

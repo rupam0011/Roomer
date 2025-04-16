@@ -4,6 +4,7 @@
 import React from 'react';
 import { Room } from '@/interfaces/interface';
 import  {useRouter}  from 'next/navigation';
+import Image from 'next/image';
 
 interface RoomCardProps {
   room: Room;
@@ -27,16 +28,29 @@ const RoomCard: React.FC<RoomCardProps> = ({ room }) => {
       onClick={() => router.push(`/admin/rooms/${room.id}`)}
     >
       {room.image_url && (
-        <img
-          src={room.image_url}
-          alt={room.name}
-          style={{ width: '100%', height: 'auto', borderRadius: '12px', marginBottom: '12px' }}
-        />
+        <div
+          style={{
+            position: 'relative',
+            width: '100%',
+            height: '200px',
+            borderRadius: '12px',
+            overflow: 'hidden',
+            marginBottom: '12px',
+          }}
+        >
+          <Image
+            src={room.image_url}
+            alt={room.name}
+            fill
+            quality={100}
+            style={{ objectFit: 'cover' }}
+          />
+        </div>
       )}
+
       <h2 className='kanit'>{room.name}</h2>
       <p className='outfit'><strong>Capacity:</strong> {room.capacity}</p>
       <p className='outfit'>{room.description}</p>
-      
     </div>
   );
 };

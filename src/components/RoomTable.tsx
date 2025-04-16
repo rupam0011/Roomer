@@ -1,3 +1,5 @@
+'use client';
+
 import { AgGridReact } from 'ag-grid-react';
 import { themeBalham } from 'ag-grid-community';
 import { useMemo, useRef } from 'react';
@@ -8,17 +10,14 @@ import {
   ICellRendererParams,
   ModuleRegistry,
 } from 'ag-grid-community';
+import Image from 'next/image'; // ✅ Import next/image
 
 ModuleRegistry.registerModules([ClientSideRowModelModule]);
 
 const RoomTable = ({ rooms, seats }: { rooms: Room[]; seats: Seat[] }) => {
   const gridRef = useRef(null);
 
-  const centerStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    height: '100%',
-  };
+ 
 
   const myTheme = themeBalham.withParams({
     accentColor: 'rgba(169, 169, 169, 0.45)',
@@ -28,7 +27,7 @@ const RoomTable = ({ rooms, seats }: { rooms: Room[]; seats: Seat[] }) => {
     headerTextColor: 'rgb(255, 255, 255)',
     spacing: 8,
     fontSize: '15px',
-    fontFamily:"outfit",
+    fontFamily: 'outfit',
   });
 
   const roomsWithAllocatedSeats = useMemo(() => {
@@ -40,8 +39,14 @@ const RoomTable = ({ rooms, seats }: { rooms: Room[]; seats: Seat[] }) => {
     }));
   }, [rooms, seats]);
 
-  const columnDefs: ColDef[] = useMemo(
-    () => [
+  const columnDefs: ColDef[] = useMemo(() => {
+    const centerStyle = {
+      display: 'flex',
+      alignItems: 'center',
+      height: '100%',
+    };
+
+    return [
       {
         headerName: '',
         field: 'image_url',
@@ -49,17 +54,18 @@ const RoomTable = ({ rooms, seats }: { rooms: Room[]; seats: Seat[] }) => {
         pinned: 'left',
         suppressSizeToFit: true,
         cellRenderer: (params: ICellRendererParams<Room>) => (
-          <img
-            src={params.value}
-            alt="Room"
-            style={{
-              width: 30,
-              height: 30,
-              borderRadius: '50%',
-              objectFit: 'cover',
-              margin: 'auto',
-            }}
-          />
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <Image
+              src={params.value}
+              alt="Room"
+              width={30}
+              height={30}
+              style={{
+                borderRadius: '50%',
+                objectFit: 'cover',
+              }}
+            />
+          </div>
         ),
         cellStyle: { textAlign: 'center' },
       },
@@ -91,9 +97,8 @@ const RoomTable = ({ rooms, seats }: { rooms: Room[]; seats: Seat[] }) => {
         flex: 1,
         cellStyle: centerStyle,
       },
-    ],
-    []
-  );
+    ];
+  }, []); // ✅ Now no dynamic deps needed
 
   return (
     <div style={{ height: '100%', width: '100%' }}>
