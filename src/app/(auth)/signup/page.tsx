@@ -2,16 +2,22 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import supabase from '@/lib/supabaseClient';
-import { Box,  } from '@mui/material';
+import { Box, } from '@mui/material';
 import bg from "@/assets/logingBg.png";
+import AlertDialog from '@/components/AlertDialog';
 
 export default function Register() {
 
-   const [alertOpen, setAlertOpen] = useState(false);
-    const [alertMessage, setAlertMessage] = useState('');
+  const [alertOpen, setAlertOpen] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
 
   const [form, setForm] = useState({ name: '', email: '', password: '' });
   const router = useRouter();
+
+  const showAlert = (message: string) => {
+    setAlertMessage(message);
+    setAlertOpen(true);
+  };
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,6 +53,7 @@ export default function Register() {
         console.error('Insert admin error:', insertError.message);
       } else {
         console.log("registered");
+        showAlert("Registered Successfully")
 
         router.push('/signin');
       }
@@ -54,13 +61,13 @@ export default function Register() {
   };
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "100vh",  backgroundImage: `url(${bg.src})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", }}>
-      <Box sx={{ width: "30%",height:"500px", display: "flex", flexDirection: "column", backgroundColor: "white", padding: "40px",}}>
+    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "100vh", backgroundImage: `url(${bg.src})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", }}>
+      <Box sx={{ width: "30%", height: "500px", display: "flex", flexDirection: "column", backgroundColor: "white", padding: "40px", }}>
         <Box sx={{ display: "flex", width: "100%", justifyContent: "center", alignItems: "center", flexDirection: "column", marginBottom: "60px" }}>
-          <p className='special-gothic' style={{fontSize:"40px",marginBottom:"20px"}}>
+          <p className='special-gothic' style={{ fontSize: "40px", marginBottom: "20px" }}>
             Sign Up
           </p>
-          <p className='kanit'>Already registered? <span onClick={()=>router.push("/signin")} style={{textDecoration:"underline", cursor:"pointer"}}>Sign in</span></p>
+          <p className='kanit'>Already registered? <span onClick={() => router.push("/signin")} style={{ textDecoration: "underline", cursor: "pointer" }}>Sign in</span></p>
         </Box>
         <form
           style={{ display: "flex", flexDirection: "column", gap: "20px" }}
@@ -94,6 +101,11 @@ export default function Register() {
           </button>
         </form>
       </Box>
+      <AlertDialog
+        open={alertOpen}
+        onClose={() => setAlertOpen(false)}
+        message={alertMessage}
+      />
     </Box>
 
   );
