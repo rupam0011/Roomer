@@ -6,6 +6,10 @@ import { Box,  } from '@mui/material';
 import bg from "@/assets/logingBg.png";
 
 export default function Register() {
+
+   const [alertOpen, setAlertOpen] = useState(false);
+    const [alertMessage, setAlertMessage] = useState('');
+
   const [form, setForm] = useState({ name: '', email: '', password: '' });
   const router = useRouter();
 

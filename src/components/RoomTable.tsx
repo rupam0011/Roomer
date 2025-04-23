@@ -12,12 +12,13 @@ import {
 } from 'ag-grid-community';
 import Image from 'next/image'; // ✅ Import next/image
 
+
 ModuleRegistry.registerModules([ClientSideRowModelModule]);
 
 const RoomTable = ({ rooms, seats }: { rooms: Room[]; seats: Seat[] }) => {
   const gridRef = useRef(null);
 
- 
+
 
   const myTheme = themeBalham.withParams({
     accentColor: 'rgba(169, 169, 169, 0.45)',
@@ -44,6 +45,7 @@ const RoomTable = ({ rooms, seats }: { rooms: Room[]; seats: Seat[] }) => {
       display: 'flex',
       alignItems: 'center',
       height: '100%',
+    
     };
 
     return [
@@ -58,6 +60,7 @@ const RoomTable = ({ rooms, seats }: { rooms: Room[]; seats: Seat[] }) => {
             <Image
               src={params.value}
               alt="Room"
+              quality={100}
               width={30}
               height={30}
               style={{
@@ -89,8 +92,13 @@ const RoomTable = ({ rooms, seats }: { rooms: Room[]; seats: Seat[] }) => {
         field: 'capacity',
         flex: 1,
         sortable: true,
+        valueGetter: (params) => {
+          const { rows, columns } = params.data;
+          return rows && columns ? rows * columns : 'N/A';
+        },
         cellStyle: centerStyle,
       },
+
       {
         headerName: 'Allocated Seats',
         field: 'allocatedSeats',
@@ -107,8 +115,9 @@ const RoomTable = ({ rooms, seats }: { rooms: Room[]; seats: Seat[] }) => {
         ref={gridRef}
         rowData={roomsWithAllocatedSeats}
         columnDefs={columnDefs}
-        pagination={true}
-        paginationPageSize={10}
+        // pagination={true}
+        // paginationAutoPageSize={true}
+        // suppressPaginationPanel={roomsWithAllocatedSeats.length <= 10}
         rowHeight={40}
         domLayout="autoHeight"
       />

@@ -37,7 +37,7 @@ const Home = () => {
       <div className={homeStyle.banner}>
         <div className={homeStyle.overlay}>
           <p className="special-gothic">Simplify Your <br /> Room Management</p>
-          <button>Get Started</button>
+         <Link href={"/signup"}><button>Get Started</button></Link> 
         </div>
         <div className={homeStyle.img_banner} >
           <Image src={"https://images.unsplash.com/photo-1606766923156-15fa276e8f07?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"} alt="banner img"
@@ -109,7 +109,7 @@ const Home = () => {
           </div>
           <div className={homeStyle.content}>
             <h3>{room.name}</h3>
-            <p className={homeStyle.capacity}>Capacity: {room.capacity}</p>
+            <p className={homeStyle.capacity}>Capacity: {room.columns && room.rows ? room.columns * room.rows : 0}</p>
             <p className={homeStyle.desc}>{room.description}</p>
             <Link href={`/rooms/${room.id}`}>
               <button className={homeStyle.btn}>View Room</button>
