@@ -102,75 +102,57 @@ const RoomsPage = () => {
 
             {/* Main Content */}
             <Container maxWidth={"xl"}>
-                <div
-                    style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "flex-end",
-                        marginBottom: "20px",
-                        paddingRight: "40px",
-                        position: "relative",
-                    }}
-                >
-                    <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
-                        <p style={{ fontSize: "30px", fontFamily: "outfit" }}>
-                            All Rooms ({loading ? "..." : filteredRooms.length})
-                        </p>
-                        <div style={{ position: "relative" }}>
-                            <input
-                                type="text"
-                                placeholder="Search by name..."
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
+
+                <div className={styles.heads} >
+                    <p className={styles.heading} >
+                        All Rooms ({loading ? "..." : filteredRooms.length})
+                    </p>
+                    <div className={styles.search}>
+                        <input
+                            type="text"
+                            placeholder="Search by name..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            className={styles.inputField}
+                        />
+                        {/* Suggestions Dropdown */}
+                        {suggestions.length > 0 && (
+                            <ul
                                 style={{
-                                    width: "200px",
-                                    height: "30px",
-                                    paddingLeft: "8px",
-                                    border: "1px solid rgba(218, 218, 218, 0.297)",
-                                    outline: "none",
+                                    position: "absolute",
+                                    top: "35px",
+                                    width: "100%",
                                     background: "#111",
-                                    color: "#fff",
+                                    border: "1px solid rgba(218, 218, 218, 0.297)",
                                     borderRadius: "4px",
+                                    listStyle: "none",
+                                    padding: 0,
+                                    margin: 0,
+                                    zIndex: 1000,
+                                    maxHeight: "150px",
+                                    overflowY: "auto",
                                 }}
-                            />
-                            {/* Suggestions Dropdown */}
-                            {suggestions.length > 0 && (
-                                <ul
-                                    style={{
-                                        position: "absolute",
-                                        top: "35px",
-                                        width: "100%",
-                                        background: "#111",
-                                        border: "1px solid rgba(218, 218, 218, 0.297)",
-                                        borderRadius: "4px",
-                                        listStyle: "none",
-                                        padding: 0,
-                                        margin: 0,
-                                        zIndex: 1000,
-                                        maxHeight: "150px",
-                                        overflowY: "auto",
-                                    }}
-                                >
-                                    {suggestions.map((name, index) => (
-                                        <li
-                                            key={index}
-                                            onClick={() => handleSuggestionClick(name)}
-                                            style={{
-                                                padding: "8px",
-                                                cursor: name !== "__no_match__" ? "pointer" : "default",
-                                                borderBottom: "1px solid rgba(218, 218, 218, 0.297)",
-                                                color: "#fff",
-                                                fontStyle: name === "__no_match__" ? "italic" : "normal",
-                                            }}
-                                        >
-                                            {name === "__no_match__" ? "No matching names found" : name}
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
-                        </div>
+                            >
+                                {suggestions.map((name, index) => (
+                                    <li
+                                        key={index}
+                                        onClick={() => handleSuggestionClick(name)}
+                                        style={{
+                                            padding: "8px",
+                                            cursor: name !== "__no_match__" ? "pointer" : "default",
+                                            borderBottom: "1px solid rgba(218, 218, 218, 0.297)",
+                                            color: "#fff",
+                                            fontStyle: name === "__no_match__" ? "italic" : "normal",
+                                        }}
+                                    >
+                                        {name === "__no_match__" ? "No matching names found" : name}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                     </div>
                 </div>
+
 
                 {/* Room Cards */}
                 <div className={styles.roomList}>

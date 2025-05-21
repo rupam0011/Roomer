@@ -151,7 +151,7 @@
 
 .rest_container .details .detailsBox .image {
     position: relative;
-   
+
 }
 
 .rest_container .details .detailsBox .image img {
@@ -179,13 +179,15 @@
     /* font-weight: bold; */
     font-family: kanit;
 }
-.heads p{
+
+.heads p {
     cursor: pointer;
     transition: 0.3s all ease-in-out;
     /* border: 2px solid red; */
     height: 25px;
 }
-.heads p:hover{
+
+.heads p:hover {
     transform: translateX(20%);
 }
 
@@ -295,7 +297,7 @@
 
 /* ================ create =============== */
 
-.create_container{
+.create_container {
     width: 100%;
     height: 600px;
     /* border: 2px solid red; */
@@ -303,21 +305,23 @@
     color: #fff;
 }
 
-.create_container div{
+.create_container div {
     width: 50%;
 }
 
-.create_container .left_text{
+.create_container .left_text {
     /* border: 2px solid red; */
     padding: 40px 0 0 210px;
     background-color: #333333;
 }
-.create_container .left_text .create_header{
+
+.create_container .left_text .create_header {
     font-size: 2rem;
     font-family: kanit;
     letter-spacing: 1px;
 }
-.create_container .left_text .create_desc{
+
+.create_container .left_text .create_desc {
     margin-top: 20px;
     margin-bottom: 60px;
     font-family: outfit;
@@ -345,12 +349,232 @@
     color: #fff;
 }
 
-.create_container .right_image{
+.create_container .right_image {
     position: relative;
 }
 
-.create_container .right_image img{
+.create_container .right_image img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+/* ===================================== */
+/*         MEDIA QUERIES FOR MOBILE      */
+/* ===================================== */
+
+@media (max-width: 1440px) {
+    .overlay {
+        /* width: 60%; */
+        /* height: 40%; */
+        /* padding: 20px; */
+        /* margin-bottom: 0; */
+    }
+
+    .overlay p {
+        font-size: 2rem;
+        margin: 0;
+        /* font-weight: 600; */
+        margin-bottom: 8rem;
+        /* border: 2px solid red; */
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .overlay {
+        width: 45%;
+        /* height: auto; */
+        padding: 20px;
+        /* margin-bottom: 0; */
+    }
+
+    .overlay p {
+        font-size: 1.8rem;
+        margin: 0;
+        /* font-weight: 600; */
+        margin-bottom: 8rem;
+        /* border: 2px solid red; */
+    }
+
+    .create_container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .create_container div {
+        width: 100%;
+    }
+
+    .create_container .left_text {
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .create_container .left_text .create_desc {
+        width: 100%;
+        text-align: justify;
+        margin: 20px auto;
+    }
+
+    .create_container .right_image {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        flex-direction: column;
+        height: auto;
+        position: relative;
+    }
+
+    .banner .img_banner {
+        width: 100%;
+        height: 250px;
+    }
+
+    .overlay {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 50%;
+        /* width: 23%; */
+        /* border: 2px solid red; */
+        padding: 20px;
+    }
+
+    .overlay p {
+        font-size: 1.5rem;
+        margin: 0;
+        margin-bottom: 5rem;
+
+    }
+
+    .overlay button {
+        width: 8rem;
+        padding: 10px 20px;
+        font-size: 1rem;
+        margin-top: 5px;
+    }
+
+    .rest_container .details .detailsBox {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .rest_container .details .detailsBox div {
+        width: 100%;
+    }
+
+    .rest_container .details .detailsBox .texts {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .rest_container .details .detailsBox .texts .text_desc {
+        font-size: 14px;
+    }
+
+    .rest_container .details .detailsBox .image {
+        height: 250px;
+    }
+
+    .rest_container .details .detailsBox .image img {
+        object-fit: cover;
+    }
+
+    .cardContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        height: auto;
+    }
+
+    .imageBox {
+        height: 250px;
+    }
+
+    .content h3 {
+        font-size: 1.4rem;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .wrapper .heads {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+}
+
+
+@media (max-width: 430px) {
+    .banner {
+        flex-direction: column;
+        height: auto;
+        position: relative;
+    }
+
+    .banner .img_banner {
+        width: 100%;
+        height: 250px;
+    }
+
+    .overlay {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 50%;
+        width: 50%;
+        /* border: 2px solid red; */
+        padding: 20px;
+    }
+
+    .overlay p {
+        font-size: 1rem;
+        margin: 0;
+        margin-bottom: 5rem;
+
+    }
+
+    .overlay button {
+        width: 7rem;
+        padding: 5px 10px;
+        font-size: 0.8rem;
+        margin-top: 5px;
+    }
+
+    .rest_container .details .detailHead {
+        font-size: 1.5rem;
+    }
+
+    .rest_container .details .detailsBox .texts button {
+        width: 7rem;
+        padding: 5px 10px;
+        font-size: 0.8rem;
+        margin-bottom: 45px;
+
+    }
+
+    .heading {
+        font-size: 1.5rem;
+    }
+
+    .create_container .left_text .create_header {
+        font-size: 1.57rem;
+    }
+    .create_container .left_text .create_desc {
+        font-size: 1rem;
+    }
+    .create_container .left_text button {
+        padding: 5px 10px;
+        border: none;
+        font-size: 0.8rem;
+        width: 6rem;
+       
+    }
 }
